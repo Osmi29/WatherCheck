@@ -1,0 +1,125 @@
+ion-content {
+    --background: white;
+  }
+  
+  .logo {
+    width: 44px;
+    height: 44px;
+    margin-right: 10px;
+    margin-left: 10px;
+    filter: invert(1);
+    justify-self: flex-start;
+    cursor: pointer;
+  }
+  
+  .header {
+    width: 100%;
+    height: 80px;
+    background-color: rgb(12, 12, 122);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  h1 {
+    font-size: 37px;
+    color: white;
+    text-align: center;
+    width: 100%;
+  }
+  
+  p {
+    color: black;
+    font-size: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 10px;
+  }
+  
+  .foto_usuario img {
+    width: 90px;
+    height: 90px;
+    border: 2px solid black;
+    margin-left: 40px;
+    border-radius: 45px;
+  }
+  
+  .contenedor_log {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .animacion {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Aseguramos que el icono de menú esté por encima de otros elementos */
+/* Aseguramos que el icono de menú esté por encima de otros elementos */
+.logo {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;  /* Ajusta según sea necesario */
+    left: 20px; /* Ajusta según sea necesario */
+    z-index: 1000; /* Asegura que el icono esté encima de otros elementos */
+  }
+  
+  /* Ocultar el icono de menú cuando el menú está visible */
+  .slide-menu.show + .header .logo {
+    display: none;  /* Esconde el icono de menú cuando el menú se despliega */
+  }
+  
+  /* Estilo del menú deslizable */
+  .slide-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;  /* Ajusta el tamaño del menú deslizable */
+    height: 100%;
+    background-color: rgb(0, 0, 0);  /* Fondo oscuro y transparente */
+    transform: translateX(-100%);  /* El menú comienza oculto fuera de la pantalla */
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Asegura que el menú esté encima del contenido */
+  }
+  
+  .slide-menu.show {
+    transform: translateX(0);  /* Cuando se activa, el menú se desliza hacia la vista */
+    z-index: 1100; /* Asegura que el menú esté por encima de la imagen del menú */
+  }
+  
+  .close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 50px;
+  }
+  
+  ul li {
+    padding: 15px;
+    text-align: left;
+  }
+  
+  ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  ul li a ion-icon {
+    margin-right: 10px;
+  }
+  
+  ul li:hover {
+    background-color: #444;
+  }
+  

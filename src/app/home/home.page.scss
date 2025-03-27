@@ -1,0 +1,95 @@
+ion-content{
+  --background:rgb(239, 235, 235);
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+
+  
+  border-radius: 12px;
+  
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  align-self: center;
+  justify-self: center;
+  margin: 0;
+}
+
+.logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.input-container {
+  width: 100%;
+  margin-bottom: 25px;
+  border-bottom: 3px solid #0B2447; /* Línea más gruesa */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5px;
+}
+
+.input-container input {
+  width: 350px;
+  padding: 15px;
+  font-size: 18px;
+  text-align: center; /* Centra el texto */
+  line-height: 1.5; /* Ajusta altura del texto */
+  background: none;
+  border: none;
+  outline: none;
+  color: #19376D;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+}
+
+.input-container input::placeholder {
+  color: rgb(25, 55, 109);
+  transition: 0.3s;
+  text-align: center; 
+}
+
+.input-container input:focus::placeholder {
+  color: transparent;
+}
+
+.btn {
+  width: 100%;
+  padding: 15px;
+  background-color:  #0B2447; 
+  color:  #ffffff; 
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #003ac2;
+  color: #ffffff;
+}
+
+.register-text {
+  margin-top: 20px;
+  color:rgb(25, 55, 109);
+  font-size: 16px;
+}
+
+.register-text a {
+  color:rgb(0, 54, 153);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+  color: green;
+}

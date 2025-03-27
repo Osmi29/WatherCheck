@@ -1,0 +1,36 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <h1>Registro</h1>
+
+    <form [formGroup]="registroForm" (ngSubmit)="registrar()">
+      <div class="input-group">
+        <img src="../../assets/icon/log_usuario.png" alt="Logo Usuario" class="logo">
+        <ion-input formControlName="nombre" type="text" required placeholder="Nombre"></ion-input>
+      </div>
+
+      <div class="input-group">
+        <img src="../../assets/icon/log_correo.webp" alt="Logo Correo" class="logo">
+        <ion-input formControlName="correo" type="text" required placeholder="Correo electrónico"></ion-input>
+      </div>
+
+      <div class="input-group">
+        <img src="../../assets/icon/log_contrasena.png" alt="Logo Contraseña" class="logo">
+        <ion-input formControlName="contrasena" type="password" required placeholder="Contraseña"></ion-input>
+      </div>
+
+      <div class="input-group">
+        <img src="../../assets/icon/log_contr.png" alt="Logo Confirmar Contraseña" class="logo">
+        <ion-input formControlName="confirmar" type="password" required placeholder="Confirmar Contraseña"></ion-input>
+      </div>
+
+      <div class="input-group">
+        <input type="file" (change)="onFileSelected($event)" />
+      </div>
+
+      <div class="buttons">
+        <ion-button type="submit" class="btn-confirm" [disabled]="registroForm.invalid">Confirmar</ion-button>
+        <ion-button class="btn-cancel" (click)="cancelar()">Cancelar</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

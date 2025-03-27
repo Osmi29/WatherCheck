@@ -1,0 +1,20 @@
+<ion-content>
+  <div class="container">
+    <img src="../../assets/icon/log.png" alt="Logo" class="logo">
+
+    <form [formGroup]="loginForm">
+      <div class="input-container">
+        <input type="email" formControlName="correo" required placeholder="Correo electrónico">
+      </div>
+      <div class="input-container">
+        <input type="password" formControlName="contrasena" required placeholder="Contraseña">
+      </div>
+      <button type="button" class="btn" (click)="iniciarSesion()">Iniciar Sesión</button>
+    </form>
+
+    <p class="register-text">
+      ¿No tienes cuenta?  
+      <a [routerLink]="'/registro'">Regístrate</a>
+    </p>
+  </div>
+</ion-content>

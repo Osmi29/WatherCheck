@@ -1,0 +1,52 @@
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <img src="../../assets/icon/log_menu.png" alt="Logo Menu" class="logo" (click)="menuVisible = !menuVisible">
+    <h1>Cuenta</h1>
+  </div>
+
+  <div class="content">
+    <div class="foto_usuario">
+      <img [src]="usuario.Foto || '../../assets/icon/sin_foto.webp'" alt="Foto perfil" class="usuario_foto">
+      <div class="usuario_info">
+        <p>{{ usuario?.Nombre || 'Invitado' }}</p>
+      </div>
+    </div>
+
+    <button class="cambiar-imagen-button">Cambiar Imagen</button>
+
+    <div class="input-container">
+      <div class="input-wrapper">
+        <input type="email" placeholder="example@gmail.com" readonly />
+        <button class="editar-input-button">
+          <img src="../../assets/icon/edit_icono.png" alt="Editar" class="editar-icon" />
+        </button>
+      </div>
+      <div class="input-wrapper">
+        <input type="password" placeholder="contraseña123" readonly />
+        <button class="editar-input-button">
+          <img src="../../assets/icon/edit_icono.png" alt="Editar" class="editar-icon" />
+        </button>
+      </div>
+      <div class="input-wrapper">
+        <input type="text" placeholder="Juan Perez" readonly />
+        <button class="editar-input-button">
+          <img src="../../assets/icon/edit_icono.png" alt="Editar" class="editar-icon" />
+        </button>
+      </div>
+    </div>
+
+    <button class="guardar-cambios-button">Guardar Cambios</button>
+  </div>
+
+  <!-- Menú deslizable -->
+  <div class="slide-menu" [class.show]="menuVisible">
+    <ion-icon name="close" class="close-icon" (click)="menuVisible = false"></ion-icon>
+    <ul>
+      <li><a [routerLink]="'/inicio'"><ion-icon name="home"></ion-icon> Home</a></li>
+      <li><a [routerLink]="'/cuenta'"><ion-icon name="person"></ion-icon> Cuenta</a></li>
+      <li><a [routerLink]="'/evaluacion'"><ion-icon name="clipboard"></ion-icon> Evaluación</a></li>
+      <li><a [routerLink]="'/configuracion'"><ion-icon name="settings"></ion-icon> Configuración</a></li>
+      <li><a (click)="cerrarSesion()"><ion-icon name="log-out"></ion-icon> Cerrar Sesión</a></li>
+    </ul>
+  </div>
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <img src="../../assets/icon/log_menu.png" alt="Logo Menu" class="logo" (click)="menuVisible = !menuVisible">
+    <h1>Inicio</h1>
+  </div>
+
+  <div class="content">
+    <p>¡Bienvenido!</p>
+    
+    <!-- Mostrar el nombre del usuario -->
+    <p>{{ usuario?.Nombre || 'Invitado' }}</p>
+
+    <div class="foto_usuario">
+      <!-- Mostrar la foto del usuario -->
+      <img [src]="usuario?.Foto || '../../assets/icon/sin_foto.webp'" alt="Foto perfil" class="usuario_foto">
+    </div>
+  </div>
+
+  <div class="contenedor">
+    <p *ngIf="estadoContenedor === 0">Contenedor sin llenar</p>
+    <div *ngIf="estadoContenedor === 0">
+      <img src="../../assets/icon/x_animacion.webp" alt="X Animación" class="animacion">
+    </div>
+
+    <p *ngIf="estadoContenedor === 1">Contenedor lleno</p>
+    <div *ngIf="estadoContenedor === 1">
+      <img src="../../assets/icon/palomita_animacion.webp" alt="Palomita Animación" class="animacion">
+    </div>
+  </div>
+
+  <ion-button [disabled]="estadoContenedor === 0" (click)="analizar()">Analizar</ion-button>
+  <ion-button *ngIf="estadoContenedor === 1" (click)="vaciarContenedor()">Vaciar</ion-button>
+
+  <div class="resultado">
+    <img *ngIf="cargandoAnalisis" src="../../assets/icon/cargando_log.png" alt="Cargando">
+    <p *ngIf="cargandoAnalisis">Análisis en Proceso</p>
+
+    <img *ngIf="calidad === 1" src="../../assets/icon/feliz_log.png" alt="Excelente">
+    <p *ngIf="calidad === 1">Calidad del agua Excelente</p>
+
+    <img *ngIf="calidad === 2" src="../../assets/icon/aceptable_log.png" alt="Aceptable">
+    <p *ngIf="calidad === 2">Calidad del agua Aceptable</p>
+
+    <img *ngIf="calidad === 3" src="../../assets/icon/triste_logo.png" alt="Mala">
+    <p *ngIf="calidad === 3">Calidad del agua Mala</p>
+  </div>
+
+  <!-- Menú deslizable -->
+  <div class="slide-menu" [class.show]="menuVisible">
+    <ion-icon name="close" class="close-icon" (click)="menuVisible = false"></ion-icon>
+    <ul>
+      <li><a [routerLink]="'/inicio'"><ion-icon name="home"></ion-icon> Home</a></li>
+      <li><a [routerLink]="'/cuenta'"><ion-icon name="person"></ion-icon> Cuenta</a></li>
+      <li><a [routerLink]="'/evaluacion'"><ion-icon name="clipboard"></ion-icon> Evaluación</a></li>
+      <li><a [routerLink]="'/configuracion'"><ion-icon name="settings"></ion-icon> Configuración</a></li>
+      <li><a (click)="cerrarSesion()"><ion-icon name="log-out"></ion-icon> Cerrar Sesión</a></li>
+    </ul>
+  </div>
+</ion-content>

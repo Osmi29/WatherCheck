@@ -1,0 +1,75 @@
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <img src="../../assets/icon/log_menu.png" alt="Logo Menu" class="logo" (click)="menuVisible = !menuVisible">
+    <h1>Evaluación</h1>
+  </div>
+
+  <div class="content">
+    <!-- Inputs para pH, temperatura y conductividad -->
+    <div class="input-group">
+      <label for="ph">pH:</label>
+      <input
+        type="number"
+        id="ph"
+        [(ngModel)]="ph"
+        (input)="actualizarColorInput('ph')"
+        [ngClass]="getColorClase('ph')"
+      />
+    </div>
+
+    <div class="input-group">
+      <label for="temperatura">Temperatura (°C):</label>
+      <input
+        type="number"
+        id="temperatura"
+        [(ngModel)]="temperatura"
+        (input)="actualizarColorInput('temperatura')"
+        [ngClass]="getColorClase('temperatura')"
+      />
+    </div>
+
+    <div class="input-group">
+      <label for="conductividad">Conductividad (µS/cm):</label>
+      <input
+        type="number"
+        id="conductividad"
+        [(ngModel)]="conductividad"
+        (input)="actualizarColorInput('conductividad')"
+        [ngClass]="getColorClase('conductividad')"
+      />
+    </div>
+
+    <!-- Botón para mostrar la evaluación -->
+    <ion-button (click)="mostrarEvaluacion()">Mostrar Evaluación</ion-button>
+
+    <!-- Botón para borrar los datos -->
+    <ion-button *ngIf="mostrarGrafica" (click)="borrarDatos()">Borrar Datos</ion-button>
+
+    <!-- Gráfica de pastel -->
+    <div *ngIf="mostrarGrafica" class="grafica-container">
+      <canvas #graficaPastel width="300" height="300"></canvas> <!-- Establecer tamaño fijo -->
+    </div>
+
+    <!-- Botones de descargar y copiar -->
+    <div *ngIf="mostrarGrafica" class="botones-container">
+      <ion-button (click)="descargarGrafica()">
+        <ion-icon name="download"></ion-icon> Descargar
+      </ion-button>
+      <ion-button (click)="copiarDatos()">
+        <ion-icon name="copy"></ion-icon> Copiar
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- Menú deslizable -->
+  <div class="slide-menu" [class.show]="menuVisible">
+    <ion-icon name="close" class="close-icon" (click)="menuVisible = false"></ion-icon>
+    <ul>
+      <li><a [routerLink]="'/inicio'"><ion-icon name="home"></ion-icon> Home</a></li>
+      <li><a [routerLink]="'/cuenta'"><ion-icon name="person"></ion-icon> Cuenta</a></li>
+      <li><a [routerLink]="'/evaluacion'"><ion-icon name="clipboard"></ion-icon> Evaluación</a></li>
+      <li><a [routerLink]="'/configuracion'"><ion-icon name="settings"></ion-icon> Configuración</a></li>
+      <li><a (click)="cerrarSesion()"><ion-icon name="log-out"></ion-icon> Cerrar Sesión</a></li>
+    </ul>
+  </div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "WaterCheck",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

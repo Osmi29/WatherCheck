@@ -1,0 +1,67 @@
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <img src="../../assets/icon/log_menu.png" alt="Logo Menu" class="logo" (click)="menuVisible = !menuVisible">
+    <h1>Configuración</h1>
+  </div>
+
+  <div class="content">
+    <h2>Control de Sensores</h2>
+    
+    <!-- Sección Sensor pH -->
+    <div class="sensor-section">
+      <h3 class="sensor-title">Sensor de pH</h3>
+      <div class="sensor-status">
+        <p>Estado:</p>
+        <p>{{ phStatus }}</p>
+        <div [ngStyle]="{'background-color': phColor}" class="status-circle"></div>
+      </div>
+      <div class="buttons">
+        <button ion-button class="button-activar" (click)="activarPH()">Activar</button>
+        <button ion-button class="button-reiniciar" (click)="reiniciarPH()">Reiniciar</button>
+        <button ion-button class="button-desactivar" (click)="desactivarPH()">Desactivar</button>
+      </div>
+    </div>
+    
+    <!-- Sección Sensor Temperatura -->
+    <div class="sensor-section">
+      <h3 class="sensor-title">Sensor de Temperatura</h3>
+      <div class="sensor-status">
+        <p>Estado:</p>
+        <p>{{ tempStatus }}</p>
+        <div [ngStyle]="{'background-color': tempColor}" class="status-circle"></div>
+      </div>
+      <div class="buttons">
+        <button ion-button class="button-activar" (click)="activarTemp()">Activar</button>
+        <button ion-button class="button-reiniciar" (click)="reiniciarTemp()">Reiniciar</button>
+        <button ion-button class="button-desactivar" (click)="desactivarTemp()">Desactivar</button>
+      </div>
+    </div>
+    
+    <!-- Sección Sensor Conductividad Eléctrica -->
+    <div class="sensor-section">
+      <h3 class="sensor-title">Sensor de Conductividad Eléctrica</h3>
+      <div class="sensor-status">
+        <p>Estado:</p>
+        <p>{{ condStatus }}</p>
+        <div [ngStyle]="{'background-color': condColor}" class="status-circle"></div>
+      </div>
+      <div class="buttons">
+        <button ion-button class="button-activar" (click)="activarCond()">Activar</button>
+        <button ion-button class="button-reiniciar" (click)="reiniciarCond()">Reiniciar</button>
+        <button ion-button class="button-desactivar" (click)="desactivarCond()">Desactivar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menú deslizable -->
+  <div class="slide-menu" [class.show]="menuVisible">
+    <ion-icon name="close" class="close-icon" (click)="menuVisible = false"></ion-icon>
+    <ul>
+      <li><a [routerLink]="'/inicio'"><ion-icon name="home"></ion-icon> Home</a></li>
+      <li><a [routerLink]="'/cuenta'"><ion-icon name="person"></ion-icon> Cuenta</a></li>
+      <li><a [routerLink]="'/evaluacion'"><ion-icon name="clipboard"></ion-icon> Evaluación</a></li>
+      <li><a [routerLink]="'/configuracion'"><ion-icon name="settings"></ion-icon> Configuración</a></li>
+      <li><a (click)="cerrarSesion()"><ion-icon name="log-out"></ion-icon> Cerrar Sesión</a></li>
+    </ul>
+  </div>
+</ion-content>
